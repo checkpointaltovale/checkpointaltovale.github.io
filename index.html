@@ -1,1 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkpoint Alto Vale - Assistência Gamer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="./imgs/favicon.png" type="image/png">
+    <style>
+        /* Variáveis de Cores Baseadas na Logo */
+        :root {
+            --cor-primaria: #0a192f; /* Azul escuro da logo */
+            --cor-destaque: #00a651; /* Verde da logo */
+            --cor-texto: #333333;
+            --cor-fundo: #f4f7f6;
+            --cor-branco: #ffffff;
+            --cor-instagram: #E1306C; /* Cor do Insta para o topo */
+        }
 
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--cor-texto);
+            background-color: var(--cor-fundo);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--cor-primaria);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Barra do Instagram no Topo */
+        .top-bar {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: var(--cor-branco);
+            text-align: center;
+            padding: 10px 15px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 100;
+        }
+
+        .top-bar a {
+            color: var(--cor-branco);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: opacity 0.2s;
+        }
+
+        .top-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* Botão de Chamada para Ação (CTA) */
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--cor-destaque);
+            color: var(--cor-branco);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 166, 81, 0.3);
+        }
+
+        .btn-cta:hover {
+            background-color: #008f45;
+            transform: translateY(-3px);
+            color: var(--cor-branco);
+        }
+
+        /* Cabecalho e Hero Section */
+        .hero {
+            background-color: var(--cor-branco);
+            padding: 3rem 2rem 4rem;
+            text-align: center;
+            border-bottom: 4px solid var(--cor-destaque);
+        }
+
+        .hero img.logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            color: #555;
+        }
+
+        /* Seção de Serviços Rápidos */
+        .services {
+            padding: 4rem 2rem;
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            border-bottom: 4px solid var(--cor-destaque);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card span.emoji {
+            font-size: 2.5rem;
+        }
+
+        /* Seção de Diferenciais */
+        .diferenciais {
+            padding: 5rem 2rem;
+            background-color: var(--cor-branco);
+            text-align: center;
+        }
+
+        .diferenciais h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .diferenciais-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .diferencial-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background: var(--cor-fundo);
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .diferencial-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .icon-box {
+            background-color: var(--cor-primaria);
+            color: var(--cor-destaque);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .diferencial-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .diferencial-text p {
+            color: var(--cor-destaque);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Seção de Cases (Galeria de Fotos) */
+        .cases {
+            padding: 5rem 2rem;
+            background-color: var(--cor-fundo);
+            text-align: center;
+        }
+
+        .cases h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .cases > p {
+            color: #555;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .case-item {
+            background: var(--cor-branco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .case-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .case-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--cor-destaque);
+        }
+
+        .case-info {
+            padding: 15px;
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+        }
+
+        .case-info h3 {
+            color: var(--cor-branco);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Localização e Footer */
+        .location {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: var(--cor-branco);
+        }
+
+        .location h2 {
+            margin-bottom: 20px;
+        }
+
+        .map-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            margin: 15px 0;
+        }
+
+        .social-links a {
+            color: var(--cor-branco);
+            font-size: 1.8rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--cor-destaque);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .diferencial-item { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="https://www.instagram.com/checkpointaltovale/" target="_blank">
+            <i class="fa-brands fa-instagram"></i> Siga @checkpointaltovale e acompanhe nossos serviços!
+        </a>
+    </div>
+
+    <header class="hero">
+        <img src="ec619608-1f2c-4d94-b8af-9ca3782eed4d.jpg" alt="Checkpoint Alto Vale Logo" class="logo">
+        <h1>Especialistas em Manutenção Gamer!</h1>
+        <p>Na Checkpoint resolvemos drift, falhas em consoles e fazemos limpeza preventiva. Nosso diferencial é o serviço rápido, transparente e com garantia real. Traga seu aparelho e volte pro jogo!</p>
+        <a href="https://share.google/0FZ6Xf9a0krexYKbU" target="_blank" class="btn-cta">
+            <i class="fa-solid fa-gamepad"></i> Fale com um Especialista
+        </a>
+    </header>
+
+    <section class="services">
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="emoji">🎮</span>
+                <div><strong>Assistência Especializada</strong></div>
+            </div>
+            <div class="service-card">
+                <span class="emoji">👾</span>
+                <div><strong>Consoles & Controles</strong></div>
+            </div>
+            <div class="service-card">
+                <span class="emoji">✨</span>
+                <div><strong>Limpeza Premium & Preventiva</strong></div>
+            </div>
+            <div class="service-card">
+                <span class="emoji">💲</span>
+                <div><strong>Preço Acessível</strong></div>
+            </div>
+            <div class="service-card">
+                <span class="emoji">🚚</span>
+                <div><strong>Entrega & Retirada</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="diferenciais">
+        <h2>Nossos Diferenciais de Confiança</h2>
+        <div class="diferenciais-container">
+            
+            <div class="diferencial-item">
+                <div class="icon-box"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="diferencial-text">
+                    <h3>Coleta & Entrega Segura (Em Domicílio)</h3>
+                    <p>Buscamos seu console e entregamos na porta de casa</p>
+                </div>
+            </div>
+
+            <div class="diferencial-item">
+                <div class="icon-box"><i class="fa-solid fa-stopwatch"></i></div>
+                <div class="diferencial-text">
+                    <h3>Manutenção Agilizada & Prazos Reduzidos</h3>
+                    <p>Serviço rápido e eficiente</p>
+                </div>
+            </div>
+
+            <div class="diferencial-item">
+                <div class="icon-box"><i class="fa-solid fa-certificate"></i></div>
+                <div class="diferencial-text">
+                    <h3>Garantia Pós-Serviço Certificada</h3>
+                    <p>Garantia real de 90 dias</p>
+                </div>
+            </div>
+
+            <div class="diferencial-item">
+                <div class="icon-box"><i class="fa-solid fa-video"></i></div>
+                <div class="diferencial-text">
+                    <h3>Vídeo Detalhado do Procedimento</h3>
+                    <p>Transparência total no serviço realizado</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cases">
+        <h2>Nossos Trabalhos na Bancada</h2>
+        <p>Confira a qualidade do nosso serviço, desde a limpeza premium até diagnósticos avançados.</p>
+        
+        <div class="cases-grid">
+            <div class="case-item">
+                <img src="./imgs/correcao-drift.jpg" alt="Correção de Drift">
+                <div class="case-info">
+                    <h3>Correção de Drift (Analógicos)</h3>
+                </div>
+            </div>
+
+            <div class="case-item">
+                <img src="./imgs/limpeza-preventiva.jpg" alt="Limpeza Preventiva">
+                <div class="case-info">
+                    <h3>Limpeza Premium de Nova Geração</h3>
+                </div>
+            </div>
+
+            <div class="case-item">
+                <img src="./imgs/reparo-ps2.jpg" alt="Manutenção e Modchips">
+                <div class="case-info">
+                    <h3>Reparos e Diagnóstico de Hardware</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location">
+        <h2>Onde Estamos</h2>
+        <p style="margin-bottom: 20px;">Atendemos Rio do Sul e toda a região do Alto Vale.</p>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113426.69973273574!2d-49.71260751910237!3d-27.214041071060934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dfb768a4170321%3A0xc3af726f1c42f36f!2sRio%20do%20Sul%2C%20SC!5e0!3m2!1spt-BR!2sbr!4v1716300000000!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/checkpointaltovale/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <p>© 2026 Checkpoint Alto Vale - Assistência Gamer.</p>
+    </footer>
+
+</body>
+</html>
